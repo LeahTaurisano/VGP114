@@ -1,17 +1,46 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Tilemaps;
 
 public class PlayerController : MonoBehaviour
 {
+    private ActionController controls;
+    [SerializeField] private Tilemap groundTilemap;
+    [SerializeField] private Tilemap collisionTilemap;
 
-    // Update is called once per frame
-    void Update()
+    private void Awake()
     {
-        if (Input.GetKeyDown("right")) gameObject.transform.position += new Vector3(1, 0);
-        if (Input.GetKeyDown("left")) gameObject.transform.position += new Vector3(-1, 0);
-        if (Input.GetKeyDown("up")) gameObject.transform.position += new Vector3(0, 1);
-        if (Input.GetKeyDown("down")) gameObject.transform.position += new Vector3(0, -1);
+        controls = new ActionController();
+    }
 
+    private void OnEnable()
+    {
+        controls.Enable();
+    }
+
+    private void OnDisable()
+    {
+        controls.Disable();
+    }
+
+    void Start()
+    {
+        controls.Movement.Movement.performed += ctx => Move(ctx.ReadValue<Vector2>());
+    }
+
+    private void Move(Vector2 direction)
+    {
+        if (CanMove(direction))
+        {
+            transform.position += (Vector3)direction;
+        }
+    }
+
+    private bool CanMove(Vector2 direction)
+    {
+        Vector3Int gridPosition = groundTilemap.WorldToCell(transform.position + (Vector3)direction);
+        if (!groundTilemap.HasTile(gridPosition) || collisionTilemap.HasTile(gridPosition)) return false;
+        return true;
     }
 }
