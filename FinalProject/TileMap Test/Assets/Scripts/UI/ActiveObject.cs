@@ -22,7 +22,7 @@ public class ActiveObject : MonoBehaviour
 
     void Update()
     {
-        /* if (trigger.flag == true )
+         if (trigger.flag == true )
          {
              ActivateCombatUI();
          }
@@ -30,8 +30,8 @@ public class ActiveObject : MonoBehaviour
          {
              DeactivateCombatUI();
          }
-        */
+        
 
-        ActivateCombatUI();
+       
     }
 }
