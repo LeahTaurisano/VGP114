@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class BattleManagement : MonoBehaviour
 {
+    [SerializeField] CombatTrigger activeCombat;
     private ButtonPressedDetector buttonPressedDetector;
     private Player player;
     private Enemy enemy;
@@ -36,10 +37,18 @@ public class BattleManagement : MonoBehaviour
         if (isPlayerTurn)
         {
             // Player attack
-            enemyHP -= 10;
+            enemyHP -= 20;
            
             Debug.Log("Enemy HP: " + enemyHP);
             isPlayerTurn = false;
+
+            if (enemyHP <= 0)
+            {
+                activeCombat.flag = false;
+                //Destroy(enemy);  //Find how to destory specific enemy
+                isPlayerTurn = true;
+                playerHP = 100;
+            }
         }
     }
 
@@ -50,7 +59,7 @@ public class BattleManagement : MonoBehaviour
         if (!isPlayerTurn)
         {
             //Enemy attack
-            playerHP -= 10; 
+            playerHP -= 5; 
 
             Debug.Log("Player HP: " + playerHP);
       

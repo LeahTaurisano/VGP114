@@ -8,10 +8,11 @@ public class CombatTrigger : MonoBehaviour
 
     public void OnTriggerEnter2D(Collider2D collision)
     {
-        
-        if (collision.CompareTag("Player"))
+      
+
+        if (collision.CompareTag("Enemy"))
         {
-            flag = true;        
+            flag = true;
         }
     }
 }
