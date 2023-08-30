@@ -36,18 +36,28 @@ public class BattleManagement : MonoBehaviour
     {
         if (isPlayerTurn)
         {
-            // Player attack
-            enemyHP -= 20;
-           
-            Debug.Log("Enemy HP: " + enemyHP);
-            isPlayerTurn = false;
-
-            if (enemyHP <= 0)
+            // Check if an enemy is in range
+            if (activeCombat.enemyInRange != null)
             {
-                activeCombat.flag = false;
-                //Destroy(enemy);  //Find how to destory specific enemy
-                isPlayerTurn = true;
-                playerHP = 100;
+                //damage enemy
+                activeCombat.enemyInRange.TakeDamage(20);
+                enemyHP = activeCombat.enemyInRange.currentHP;
+
+                Debug.Log("Enemy HP: " + enemyHP);
+
+                //if enemy hp is 0 destroy him
+                if (enemyHP <= 0)
+                {
+                    activeCombat.flag = false;
+                    activeCombat.enemyInRange.DestroyEnemy();
+                    activeCombat.enemyInRange = null;
+                    isPlayerTurn = true;
+                    playerHP = 100;
+                }
+                else
+                {
+                    isPlayerTurn = false;
+                }
             }
         }
     }
