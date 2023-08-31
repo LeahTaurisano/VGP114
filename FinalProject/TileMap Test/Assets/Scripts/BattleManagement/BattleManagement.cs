@@ -1,36 +1,18 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class BattleManagement : MonoBehaviour
 {
     [SerializeField] CombatTrigger activeCombat;
-    private ButtonPressedDetector buttonPressedDetector;
-    private Player player;
-    private Enemy enemy;
+    [SerializeField] Player player;
 
-    private int playerHP;
-    private int enemyHP;
-    private bool isPlayerTurn;
+    [SerializeField] private TextMeshProUGUI playerHealthDisplay;
+    [SerializeField] private TextMeshProUGUI enemyHealthDisplay;
 
-    private bool buttonIsPressed;
-
-    void Start()
-    {
-        buttonPressedDetector = FindObjectOfType<ButtonPressedDetector>();
-        player = FindObjectOfType<Player>();
-        enemy = FindObjectOfType<Enemy>();
-
-        isPlayerTurn = true;
-
-        playerHP = player.currentHP;
-        enemyHP = enemy.currentHP;
-        Debug.Log("Player HP: " + playerHP);
-        Debug.Log("Enemy HP: " + enemyHP);
-
-    }
-
-    // Update is called once per frame
+    private bool isPlayerTurn = true;
 
     public void AttackButtonPressed()
     {
@@ -40,19 +22,19 @@ public class BattleManagement : MonoBehaviour
             if (activeCombat.enemyInRange != null)
             {
                 //damage enemy
-                activeCombat.enemyInRange.TakeDamage(20);
-                enemyHP = activeCombat.enemyInRange.currentHP;
-
-                Debug.Log("Enemy HP: " + enemyHP);
+                activeCombat.enemyInRange.TakeDamage(player.damage);
+                enemyHealthDisplay.text = "Enemy HP: " + activeCombat.enemyInRange.currentHP;
 
                 //if enemy hp is 0 destroy him
-                if (enemyHP <= 0)
+                if (activeCombat.enemyInRange.currentHP <= 0)
                 {
                     activeCombat.flag = false;
                     activeCombat.enemyInRange.DestroyEnemy();
                     activeCombat.enemyInRange = null;
                     isPlayerTurn = true;
-                    playerHP = 100;
+                    playerHealthDisplay.text = "Player HP: " + player.currentHP;
+                    player.currentXP += 1;
+                    if (player.currentXP >= player.maxXP) player.LevelUp();
                 }
                 else
                 {
@@ -69,10 +51,10 @@ public class BattleManagement : MonoBehaviour
         if (!isPlayerTurn)
         {
             //Enemy attack
-            playerHP -= 5; 
+            player.currentHP -= activeCombat.enemyInRange.damage;
 
-            Debug.Log("Player HP: " + playerHP);
-      
+            playerHealthDisplay.text = "Player HP: " + player.currentHP;
+
             isPlayerTurn = true;
         }
         
