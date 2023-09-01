@@ -8,6 +8,7 @@ public class BattleManagement : MonoBehaviour
 {
     [SerializeField] CombatTrigger activeCombat;
     [SerializeField] Player player;
+    [SerializeField] EnemySpawn spawner;
 
     [SerializeField] private TextMeshProUGUI playerHealthDisplay;
     [SerializeField] private TextMeshProUGUI enemyHealthDisplay;
@@ -34,6 +35,8 @@ public class BattleManagement : MonoBehaviour
                     isPlayerTurn = true;
                     playerHealthDisplay.text = "Player HP: " + player.currentHP;
                     player.currentXP += 1;
+                    --spawner.enemyCount;
+                    
                     if (player.currentXP >= player.maxXP) player.LevelUp();
                 }
                 else

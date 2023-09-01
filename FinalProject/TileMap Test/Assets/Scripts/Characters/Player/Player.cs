@@ -10,6 +10,9 @@ public class Player : MonoBehaviour
     public int maxXP = 1;
     public int currentXP = 0;
 
+    public int maxEnergy = 20;
+    public int currentEnergy = 20;
+
     public int damage = 20;
 
     public void LevelUp()
