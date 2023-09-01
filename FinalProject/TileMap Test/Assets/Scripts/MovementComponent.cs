@@ -6,13 +6,17 @@ using UnityEngine.Tilemaps;
 public class MovementComponent : MonoBehaviour
 {
     // Start is called before the first frame update
-    [SerializeField] private Tilemap groundTilemap;
-    [SerializeField] private Tilemap collisionTilemap;
-    [SerializeField] CombatTrigger combatActive;
+    [SerializeField] public Tilemap groundTilemap;
+    [SerializeField] public Tilemap collisionTilemap;
+    [SerializeField] public CombatTrigger combatActive;
     float moveCD = 3;
     int randDir;
     Vector2 Direction;
-
+    public void Start()
+    {
+        GameObject collisionTilemap = GameObject.FindGameObjectWithTag("Ground1");
+        Debug.Log(collisionTilemap);
+    }
     public void Update()
     {
         if (moveCD <= 0)
