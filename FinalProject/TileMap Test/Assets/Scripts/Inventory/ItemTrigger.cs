@@ -15,7 +15,6 @@ public class ItemTrigger : MonoBehaviour
         {
             isItemInRange = true;
             itemInRange = collision.GetComponent<Item>();
-            Debug.Log("item colision");
             inventory.addItem(itemInRange);
             Debug.Log("item added");
 

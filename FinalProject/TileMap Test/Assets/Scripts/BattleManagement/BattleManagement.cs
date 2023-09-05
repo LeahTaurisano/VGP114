@@ -1,8 +1,11 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.UI;
+using static UnityEngine.InputSystem.Controls.AxisControl;
 
 public class BattleManagement : MonoBehaviour
 {
@@ -12,6 +15,8 @@ public class BattleManagement : MonoBehaviour
 
     [SerializeField] private TextMeshProUGUI playerHealthDisplay;
     [SerializeField] private TextMeshProUGUI enemyHealthDisplay;
+
+    public Inventory inventory;
 
     private bool isPlayerTurn = true;
 
@@ -47,8 +52,28 @@ public class BattleManagement : MonoBehaviour
         }
     }
 
+    public void HealButtonPressed()
+    {
+        foreach (Item item in inventory.items)
+        {      
+            if (item.itemName == "Potion")
+            {           
+                inventory.removeItem(item);
 
-    void Update()
+                player.currentHP += 20; 
+
+                if (player.currentHP > player.maxHP)
+                {
+                    player.currentHP = player.maxHP;
+                }
+                playerHealthDisplay.text = "Player HP: " + player.currentHP;
+
+                break;
+            }
+        }
+    }
+
+        void Update()
     {
       
         if (!isPlayerTurn)
