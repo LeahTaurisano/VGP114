@@ -15,7 +15,6 @@ public class MovementComponent : MonoBehaviour
     public void Start()
     {
         GameObject collisionTilemap = GameObject.FindGameObjectWithTag("Ground1");
-        Debug.Log(collisionTilemap);
     }
     public void Update()
     {
