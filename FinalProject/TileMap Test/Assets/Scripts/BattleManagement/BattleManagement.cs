@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -8,7 +9,10 @@ public class BattleManagement : MonoBehaviour
 {
     [SerializeField] CombatTrigger activeCombat;
     [SerializeField] Player player;
+    [SerializeField] GameObject playerSprite;
     [SerializeField] EnemySpawn spawner;
+    [SerializeField] GameObject endUI;
+    [SerializeField] EndgameText endtext;
 
     [SerializeField] private TextMeshProUGUI playerHealthDisplay;
     [SerializeField] private TextMeshProUGUI enemyHealthDisplay;
@@ -30,14 +34,15 @@ public class BattleManagement : MonoBehaviour
                 if (activeCombat.enemyInRange.currentHP <= 0)
                 {
                     activeCombat.flag = false;
-                    activeCombat.enemyInRange.DestroyEnemy();
                     activeCombat.enemyInRange = null;
                     isPlayerTurn = true;
                     playerHealthDisplay.text = "Player HP: " + player.currentHP;
                     player.currentXP += 1;
                     --spawner.enemyCount;
-                    
-                    if (player.currentXP >= player.maxXP) player.LevelUp();
+                    activeCombat.enemyInRange.DestroyEnemy();
+
+                    if (player.currentXP >= player.maxXP) player.LevelUp();     
+
                 }
                 else
                 {
@@ -57,6 +62,15 @@ public class BattleManagement : MonoBehaviour
             player.currentHP -= activeCombat.enemyInRange.damage;
 
             playerHealthDisplay.text = "Player HP: " + player.currentHP;
+
+            if (player.currentHP <= 0)
+            {
+                endUI.SetActive(true);
+                playerSprite.SetActive(false);
+                activeCombat.flag = false;
+                Time.timeScale = 0;
+                endtext.GameOver();
+            }
 
             isPlayerTurn = true;
         }
