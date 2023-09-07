@@ -9,6 +9,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private Tilemap groundTilemap;
     [SerializeField] private Tilemap collisionTilemap;
     [SerializeField] CombatTrigger combatActive;
+    [SerializeField] Enemy boss;
 
     private void Awake()
     {
@@ -41,7 +42,7 @@ public class PlayerController : MonoBehaviour
     private bool CanMove(Vector2 direction)
     {
         Vector3Int gridPosition = groundTilemap.WorldToCell(transform.position + (Vector3)direction);
-        if (!groundTilemap.HasTile(gridPosition) || collisionTilemap.HasTile(gridPosition) || combatActive.flag) return false;
+        if (!groundTilemap.HasTile(gridPosition) || collisionTilemap.HasTile(gridPosition) || combatActive.flag || boss.currentHP <= 0) return false;
         return true;
     }
 }

@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using TMPro;
 using UnityEditor;
 using UnityEngine;
@@ -11,14 +12,22 @@ public class BattleManagement : MonoBehaviour
 {
     [SerializeField] CombatTrigger activeCombat;
     [SerializeField] Player player;
+    [SerializeField] GameObject playerSprite;
     [SerializeField] EnemySpawn spawner;
+    [SerializeField] GameObject endUI;
+    [SerializeField] EndgameText endtext;
 
     [SerializeField] private TextMeshProUGUI playerHealthDisplay;
     [SerializeField] private TextMeshProUGUI enemyHealthDisplay;
 
     public Inventory inventory;
+<<<<<<< HEAD
 
+=======
+>>>>>>> main
     private bool isPlayerTurn = true;
+
+
 
     public void AttackButtonPressed()
     {
@@ -41,13 +50,35 @@ public class BattleManagement : MonoBehaviour
                     playerHealthDisplay.text = "Player HP: " + player.currentHP;
                     player.currentXP += 1;
                     --spawner.enemyCount;
-                    
-                    if (player.currentXP >= player.maxXP) player.LevelUp();
+                   
+
+                    if (player.currentXP >= player.maxXP) player.LevelUp();     
+
                 }
                 else
                 {
                     isPlayerTurn = false;
                 }
+            }
+        }
+    }
+    public void HealButtonPressed()
+    {
+        foreach (Item item in inventory.items)
+        {
+            if (item.itemName == "Potion")
+            {
+                inventory.removeItem(item);
+
+                player.currentHP += 20;
+
+                if (player.currentHP > player.maxHP)
+                {
+                    player.currentHP = player.maxHP;
+                }
+                playerHealthDisplay.text = "Player is now HP: " + player.currentHP;
+
+                break;
             }
         }
     }
@@ -82,6 +113,15 @@ public class BattleManagement : MonoBehaviour
             player.currentHP -= activeCombat.enemyInRange.damage;
 
             playerHealthDisplay.text = "Player HP: " + player.currentHP;
+
+            if (player.currentHP <= 0)
+            {
+                endUI.SetActive(true);
+                playerSprite.SetActive(false);
+                activeCombat.flag = false;
+                Time.timeScale = 0;
+                endtext.GameOver();
+            }
 
             isPlayerTurn = true;
         }
