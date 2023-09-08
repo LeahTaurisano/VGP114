@@ -33,7 +33,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &7390313245761276364
 SpriteRenderer:
@@ -99,7 +99,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d39cc96ae03432e49acecdd0ef2f9a5e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemName: Item1
+  itemName: Potion
 --- !u!60 &7559255636833622748
 PolygonCollider2D:
   m_ObjectHideFlags: 0

@@ -13,6 +13,8 @@ public class ItemTrigger : MonoBehaviour
     {
         if (collision.CompareTag("Item"))
         {
+            Debug.Log("item asdasdasdasd");
+
             isItemInRange = true;
             itemInRange = collision.GetComponent<Item>();
             Debug.Log("item colision");
