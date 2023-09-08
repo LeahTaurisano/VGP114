@@ -13,6 +13,7 @@ public class BattleManagement : MonoBehaviour
     [SerializeField] EnemySpawn spawner;
     [SerializeField] GameObject endUI;
     [SerializeField] EndgameText endtext;
+    public  Inventory inventory;
 
     [SerializeField] private TextMeshProUGUI playerHealthDisplay;
     [SerializeField] private TextMeshProUGUI enemyHealthDisplay;
@@ -34,12 +35,12 @@ public class BattleManagement : MonoBehaviour
                 if (activeCombat.enemyInRange.currentHP <= 0)
                 {
                     activeCombat.flag = false;
+                    activeCombat.enemyInRange.DestroyEnemy();
                     activeCombat.enemyInRange = null;
                     isPlayerTurn = true;
                     playerHealthDisplay.text = "Player HP: " + player.currentHP;
                     player.currentXP += 1;
                     --spawner.enemyCount;
-                    activeCombat.enemyInRange.DestroyEnemy();
 
                     if (player.currentXP >= player.maxXP) player.LevelUp();     
 
@@ -48,6 +49,34 @@ public class BattleManagement : MonoBehaviour
                 {
                     isPlayerTurn = false;
                 }
+            }
+        }
+    }
+    
+    public void HealButtonPressed()
+    {
+        //Debug.Log("1");
+        foreach (Item item in inventory.items)
+        {
+            //Debug.Log("2");
+            if (item.itemName == "Potion")
+            {
+             //   Debug.Log("3");
+                inventory.removeItem(item);
+              //  Debug.Log("4");
+                player.currentHP += 20;
+                Debug.Log(player.currentHP);
+
+                if (player.currentHP > player.maxHP)
+                {
+                    //Debug.Log("5");
+                    player.currentHP = player.maxHP;
+                }
+                playerHealthDisplay.text = "Player HP: " + player.currentHP;
+
+               // Debug.Log("6");
+
+                break;
             }
         }
     }

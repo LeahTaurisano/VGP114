@@ -5924,6 +5924,73 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   EndScreen: {fileID: 184917906}
+--- !u!1 &199513054
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 199513057}
+  - component: {fileID: 199513056}
+  - component: {fileID: 199513055}
+  m_Layer: 0
+  m_Name: ItemButtonPressed
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &199513055
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 199513054}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9f4bacdaf636f654aab94463b54ae4cf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  battleManager: {fileID: 1725768973}
+--- !u!114 &199513056
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 199513054}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2bd976c2b1b9d9243a79ca8b7010aed9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  activeCombat: {fileID: 0}
+  player: {fileID: 0}
+  playerSprite: {fileID: 0}
+  spawner: {fileID: 0}
+  endUI: {fileID: 0}
+  endtext: {fileID: 0}
+  inventory: {fileID: 0}
+  playerHealthDisplay: {fileID: 0}
+  enemyHealthDisplay: {fileID: 0}
+--- !u!4 &199513057
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 199513054}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 550.5, y: 259.5, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &209539224
 GameObject:
   m_ObjectHideFlags: 0
@@ -7050,7 +7117,11 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
+<<<<<<< HEAD
+  m_RootOrder: 8
+=======
   m_RootOrder: 7
+>>>>>>> f81824ee5c112ccc96122826ae5cb94726753ed8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &519420033
 MonoBehaviour:
@@ -7313,7 +7384,11 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
+<<<<<<< HEAD
+  m_RootOrder: 6
+=======
   m_RootOrder: 5
+>>>>>>> f81824ee5c112ccc96122826ae5cb94726753ed8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &572103972
 GameObject:
@@ -8308,7 +8383,11 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
+<<<<<<< HEAD
+  m_RootOrder: 4
+=======
   m_RootOrder: 3
+>>>>>>> f81824ee5c112ccc96122826ae5cb94726753ed8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &771960469
 GameObject:
@@ -8619,7 +8698,11 @@ Transform:
   - {fileID: 1355942122}
   - {fileID: 1376210610}
   m_Father: {fileID: 0}
+<<<<<<< HEAD
+  m_RootOrder: 10
+=======
   m_RootOrder: 9
+>>>>>>> f81824ee5c112ccc96122826ae5cb94726753ed8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &869676885
 GameObject:
@@ -9038,7 +9121,11 @@ Transform:
   - {fileID: 1516138508}
   - {fileID: 104319142}
   m_Father: {fileID: 0}
+<<<<<<< HEAD
+  m_RootOrder: 5
+=======
   m_RootOrder: 4
+>>>>>>> f81824ee5c112ccc96122826ae5cb94726753ed8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1096772553
 GameObject:
@@ -9321,6 +9408,7 @@ MonoBehaviour:
   spawner: {fileID: 0}
   endUI: {fileID: 0}
   endtext: {fileID: 0}
+  inventory: {fileID: 0}
   playerHealthDisplay: {fileID: 0}
   enemyHealthDisplay: {fileID: 0}
 --- !u!4 &1158793139
@@ -9597,7 +9685,11 @@ Transform:
   - {fileID: 1503675693}
   - {fileID: 650955863}
   m_Father: {fileID: 0}
+<<<<<<< HEAD
+  m_RootOrder: 9
+=======
   m_RootOrder: 8
+>>>>>>> f81824ee5c112ccc96122826ae5cb94726753ed8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1271641357
 GameObject:
@@ -9893,7 +9985,11 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
+<<<<<<< HEAD
+  m_RootOrder: 3
+=======
   m_RootOrder: 2
+>>>>>>> f81824ee5c112ccc96122826ae5cb94726753ed8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1292064588
 MonoBehaviour:
@@ -15925,6 +16021,7 @@ MonoBehaviour:
   spawner: {fileID: 1292064588}
   endUI: {fileID: 184917904}
   endtext: {fileID: 184917908}
+  inventory: {fileID: 1503675701}
   playerHealthDisplay: {fileID: 1702623377}
   enemyHealthDisplay: {fileID: 1770557750}
 --- !u!4 &1725768974
@@ -16641,7 +16738,11 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
+<<<<<<< HEAD
+  m_RootOrder: 7
+=======
   m_RootOrder: 6
+>>>>>>> f81824ee5c112ccc96122826ae5cb94726753ed8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1878064233
 GameObject:
@@ -17031,7 +17132,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1954644157}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 199513055}
+        m_TargetAssemblyTypeName: ItemButtonPressedDetector, Assembly-CSharp
+        m_MethodName: OnButtonClick
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1954644157
 MonoBehaviour:
   m_ObjectHideFlags: 0
