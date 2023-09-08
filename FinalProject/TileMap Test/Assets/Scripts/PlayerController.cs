@@ -11,6 +11,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField] CombatTrigger combatActive;
     [SerializeField] Enemy boss;
 
+    [SerializeField] private SpriteRenderer spriteRenderer;
+    [SerializeField] Sprite[] playerSprites;
     private void Awake()
     {
         controls = new ActionController();
@@ -35,6 +37,23 @@ public class PlayerController : MonoBehaviour
     {
         if (CanMove(direction))
         {
+            if(direction.y < 0) 
+            {
+                spriteRenderer.sprite = playerSprites[0];
+            }
+            else if (direction.y > 0) 
+            {
+                spriteRenderer.sprite = playerSprites[1];
+            }
+            else if (direction.x > 0) 
+            {
+                spriteRenderer.sprite = playerSprites[2];
+            }
+            else
+            {
+                spriteRenderer.sprite = playerSprites[3];
+            }
+
             transform.position += (Vector3)direction;
         }
     }
