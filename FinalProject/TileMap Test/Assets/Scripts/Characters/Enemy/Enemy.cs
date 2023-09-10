@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-    public int currentHP = 100;
+    public float currentHP = 100;
+    public float maxHP = 100;
     public int damage = 5;
     public GameObject itemPrefab;
 

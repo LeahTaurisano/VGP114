@@ -20,6 +20,11 @@ public class BattleManagement : MonoBehaviour
 
     private bool isPlayerTurn = true;
 
+    public Image playerHealthBar;
+    public Image enemyHealthBar;
+
+    
+
     public void AttackButtonPressed()
     {
         if (isPlayerTurn)
@@ -29,8 +34,9 @@ public class BattleManagement : MonoBehaviour
             {
                 //damage enemy
                 activeCombat.enemyInRange.TakeDamage(player.damage);
+                enemyHealthBar.fillAmount = (activeCombat.enemyInRange.currentHP / activeCombat.enemyInRange.maxHP);
                 enemyHealthDisplay.text = "Enemy HP: " + activeCombat.enemyInRange.currentHP;
-
+                
                 //if enemy hp is 0 destroy him
                 if (activeCombat.enemyInRange.currentHP <= 0)
                 {
@@ -91,6 +97,8 @@ public class BattleManagement : MonoBehaviour
             player.currentHP -= activeCombat.enemyInRange.damage;
 
             playerHealthDisplay.text = "Player HP: " + player.currentHP;
+            
+            playerHealthBar.fillAmount = player.currentHP / player.maxHP;
 
             if (player.currentHP <= 0)
             {
