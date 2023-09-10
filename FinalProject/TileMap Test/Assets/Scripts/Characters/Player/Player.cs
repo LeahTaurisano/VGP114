@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    public int maxHP = 100;
-    public int currentHP = 100;
+    public float maxHP = 100;
+    public float currentHP = 100;
 
     public int maxXP = 1;
     public int currentXP = 0;
