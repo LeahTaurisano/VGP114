@@ -34,12 +34,12 @@ public class BattleManagement : MonoBehaviour
                 if (activeCombat.enemyInRange.currentHP <= 0)
                 {
                     activeCombat.flag = false;
+                    activeCombat.enemyInRange.DestroyEnemy();
                     activeCombat.enemyInRange = null;
                     isPlayerTurn = true;
                     playerHealthDisplay.text = "Player HP: " + player.currentHP;
                     player.currentXP += 1;
                     --spawner.enemyCount;
-                    activeCombat.enemyInRange.DestroyEnemy();
 
                     if (player.currentXP >= player.maxXP) player.LevelUp();     
 
