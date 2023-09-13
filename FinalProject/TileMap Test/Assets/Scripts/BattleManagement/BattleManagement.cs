@@ -21,6 +21,8 @@ public class BattleManagement : MonoBehaviour
     private bool isPlayerTurn = true;
 
     public Image playerHealthBar;
+    public Image playerEnergyBar;
+    //public Image PlayerEXPBar;
     public Image enemyHealthBar;
 
     
@@ -99,6 +101,7 @@ public class BattleManagement : MonoBehaviour
             playerHealthDisplay.text = "Player HP: " + player.currentHP;
             
             playerHealthBar.fillAmount = player.currentHP / player.maxHP;
+            playerEnergyBar.fillAmount = (player.currentEnergy / player.maxEnergy);
 
             if (player.currentHP <= 0)
             {

@@ -15,6 +15,7 @@ public class CombatTrigger : MonoBehaviour
     [SerializeField] private TextMeshProUGUI enemyHealthDisplay;
 
     public Image playerHealthBar;
+    public Image PlayerEXPBar;
     public Image enemyHealthBar;
 
     public void OnTriggerEnter2D(Collider2D collision)
@@ -27,6 +28,7 @@ public class CombatTrigger : MonoBehaviour
             playerHealthBar.fillAmount = (player.currentHP / player.maxHP);
             enemyHealthDisplay.text = "Enemy HP: " + enemyInRange.currentHP;
             enemyHealthBar.fillAmount = (enemyInRange.currentHP / enemyInRange.maxHP);
+            PlayerEXPBar.fillAmount = player.currentXP / player.maxXP;
         }
     }
 

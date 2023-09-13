@@ -304,7 +304,7 @@ TextureImporter:
         serializedVersion: 2
         x: 135
         y: 293
-        width: 45
+        width: 41
         height: 7
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -979,7 +979,7 @@ TextureImporter:
         width: 44
         height: 12
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -987,6 +987,90 @@ TextureImporter:
       bones: []
       spriteID: a72e5d16f1616e1458c296adf1739b32
       internalID: 311626947
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GUI_sheet_42
+      rect:
+        serializedVersion: 2
+        x: 176
+        y: 172
+        width: 16
+        height: 3
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 585dfa4e7568c6b42a304da1097f7c2c
+      internalID: -1563115492
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GUI_sheet_43
+      rect:
+        serializedVersion: 2
+        x: 176
+        y: 164
+        width: 16
+        height: 3
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a299f891cedcd8c42a4d8ab35e6473b9
+      internalID: -36856799
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GUI_sheet_44
+      rect:
+        serializedVersion: 2
+        x: 177
+        y: 169
+        width: 14
+        height: 1
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 412628281ba75634089510fe5a63777b
+      internalID: -510628008
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GUI_sheet_45
+      rect:
+        serializedVersion: 2
+        x: 177
+        y: 161
+        width: 14
+        height: 1
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 88778ed53661ace47b96bf83e3fa5f7b
+      internalID: -220694810
       vertices: []
       indices: 
       edges: []
@@ -1039,6 +1123,10 @@ TextureImporter:
       GUI_sheet_4: -843600644
       GUI_sheet_40: 159997102
       GUI_sheet_41: 311626947
+      GUI_sheet_42: -1563115492
+      GUI_sheet_43: -36856799
+      GUI_sheet_44: -510628008
+      GUI_sheet_45: -220694810
       GUI_sheet_5: -1662645633
       GUI_sheet_6: 620540868
       GUI_sheet_7: -1517096389

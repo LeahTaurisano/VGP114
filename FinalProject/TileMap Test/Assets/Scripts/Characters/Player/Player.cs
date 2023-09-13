@@ -7,11 +7,11 @@ public class Player : MonoBehaviour
     public float maxHP = 100;
     public float currentHP = 100;
 
-    public int maxXP = 1;
-    public int currentXP = 0;
+    public float maxXP = 1;
+    public float currentXP = 0;
 
-    public int maxEnergy = 20;
-    public int currentEnergy = 20;
+    public float maxEnergy = 20;
+    public float currentEnergy = 20;
 
     public int damage = 20;
 
