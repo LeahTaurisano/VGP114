@@ -47,8 +47,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 71aedfb3191806040b2897b6ae001c9d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentHP: 1000
-  maxHP: 1000
+  currentHP: 100
+  maxHP: 100
   damage: 5
   itemPrefab: {fileID: 4045088732489987478, guid: 2c59485e29af2cb41b1e18dd71bf4cbe, type: 3}
 --- !u!212 &1171084116544535049
