@@ -13,8 +13,8 @@ public class BattleManagement : MonoBehaviour
     [SerializeField] EnemySpawn spawner;
     [SerializeField] GameObject endUI;
     [SerializeField] EndgameText endtext;
-    public  Inventory inventory;
-
+    public Inventory inventory;
+    [SerializeField] private TextMeshProUGUI healthPotionAmount;
     [SerializeField] private TextMeshProUGUI playerHealthDisplay;
     [SerializeField] private TextMeshProUGUI enemyHealthDisplay;
 
@@ -51,7 +51,7 @@ public class BattleManagement : MonoBehaviour
                     --spawner.enemyCount;
 
                     if (player.currentXP >= player.maxXP) player.LevelUp();     
-
+                    
                 }
                 else
                 {
@@ -80,10 +80,11 @@ public class BattleManagement : MonoBehaviour
                     //Debug.Log("5");
                     player.currentHP = player.maxHP;
                 }
+                healthPotionAmount.text = "X" + inventory.getItemAmount("Potion").ToString();
                 playerHealthDisplay.text = "Player HP: " + player.currentHP;
-
-               // Debug.Log("6");
-
+                playerHealthBar.fillAmount = player.currentHP / player.maxHP;
+                // Debug.Log("6");
+                
                 break;
             }
         }
