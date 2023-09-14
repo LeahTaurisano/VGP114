@@ -6355,7 +6355,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1158793137}
         m_TargetAssemblyTypeName: ButtonPressedDetector, Assembly-CSharp
-        m_MethodName: OnButtonClick
+        m_MethodName: OnAttackButtonClick
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -8367,7 +8367,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1158793137}
         m_TargetAssemblyTypeName: ButtonPressedDetector, Assembly-CSharp
-        m_MethodName: OnButtonClick
+        m_MethodName: OnAttack2ButtonClick
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

@@ -19,6 +19,7 @@ public class Player : MonoBehaviour
     {
         currentXP = 0;
         maxHP += 10;
+        maxEnergy += 5;
         damage += 5;
         currentHP = maxHP;
     }

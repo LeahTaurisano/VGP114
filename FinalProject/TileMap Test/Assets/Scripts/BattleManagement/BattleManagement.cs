@@ -25,9 +25,31 @@ public class BattleManagement : MonoBehaviour
     //public Image PlayerEXPBar;
     public Image enemyHealthBar;
 
-    
+    public void KillEnemy()
+    {
+        activeCombat.flag = false;
+        activeCombat.enemyInRange.DestroyEnemy();
+        activeCombat.enemyInRange = null;
+        isPlayerTurn = true;
+        playerHealthDisplay.text = "Player HP: " + player.currentHP;
+        player.currentXP += 1;
+        --spawner.enemyCount;
 
-    public void AttackButtonPressed()
+        if (player.currentXP >= player.maxXP) player.LevelUp();
+    }
+
+    private void AttackOne()
+    {
+        activeCombat.enemyInRange.TakeDamage(player.damage);
+    }
+
+    private void AttackTwo()
+    {
+        player.currentEnergy -= 10;
+        activeCombat.enemyInRange.TakeDamage(player.damage + (player.damage / 2));
+    }
+
+    public void AttackButtonPressed(int attackNum)
     {
         if (isPlayerTurn)
         {
@@ -35,26 +57,20 @@ public class BattleManagement : MonoBehaviour
             if (activeCombat.enemyInRange != null)
             {
                 //damage enemy
-                activeCombat.enemyInRange.TakeDamage(player.damage);
+                if (attackNum == 1) AttackOne();
+                else if (attackNum == 2) AttackTwo();
                 enemyHealthBar.fillAmount = (activeCombat.enemyInRange.currentHP / activeCombat.enemyInRange.maxHP);
                 enemyHealthDisplay.text = "Enemy HP: " + activeCombat.enemyInRange.currentHP;
                 
                 //if enemy hp is 0 destroy him
                 if (activeCombat.enemyInRange.currentHP <= 0)
                 {
-                    activeCombat.flag = false;
-                    activeCombat.enemyInRange.DestroyEnemy();
-                    activeCombat.enemyInRange = null;
-                    isPlayerTurn = true;
-                    playerHealthDisplay.text = "Player HP: " + player.currentHP;
-                    player.currentXP += 1;
-                    --spawner.enemyCount;
-
-                    if (player.currentXP >= player.maxXP) player.LevelUp();     
-                    
+                    KillEnemy();
                 }
                 else
                 {
+                    player.currentEnergy += 5;
+                    if (player.currentEnergy > player.maxEnergy) player.currentEnergy = player.maxEnergy;
                     isPlayerTurn = false;
                 }
             }
