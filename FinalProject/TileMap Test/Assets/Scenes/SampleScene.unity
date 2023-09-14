@@ -17371,6 +17371,8 @@ MonoBehaviour:
   combatUI: {fileID: 1293728558}
   menuUI: {fileID: 1769393975}
   inventoryMenuUI: {fileID: 1324109559}
+  playerCombatSprite: {fileID: 171751228}
+  enemyCombatSprite: {fileID: 1897622855}
 --- !u!4 &1866559690
 Transform:
   m_ObjectHideFlags: 0
