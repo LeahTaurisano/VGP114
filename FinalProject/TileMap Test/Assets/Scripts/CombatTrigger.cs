@@ -10,7 +10,8 @@ public class CombatTrigger : MonoBehaviour
     public Enemy enemyInRange;
 
     [SerializeField] Player player;
-
+    public Inventory inventory;
+    [SerializeField] private TextMeshProUGUI healthPotionAmount;
     [SerializeField] private TextMeshProUGUI playerHealthDisplay;
     [SerializeField] private TextMeshProUGUI enemyHealthDisplay;
 
@@ -29,6 +30,7 @@ public class CombatTrigger : MonoBehaviour
             enemyHealthDisplay.text = "Enemy HP: " + enemyInRange.currentHP;
             enemyHealthBar.fillAmount = (enemyInRange.currentHP / enemyInRange.maxHP);
             PlayerEXPBar.fillAmount = player.currentXP / player.maxXP;
+            healthPotionAmount.text = "X" + inventory.getItemAmount("Potion").ToString();
         }
     }
 
