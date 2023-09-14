@@ -11,6 +11,7 @@ public class HealPool : MonoBehaviour
         if (collision.CompareTag("Player"))
         {
             player.currentHP = player.maxHP;
+            player.currentEnergy = player.maxEnergy;
         }
     }
 }

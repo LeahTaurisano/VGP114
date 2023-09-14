@@ -14,9 +14,13 @@ public class ButtonPressedDetector : MonoBehaviour
     [SerializeField] private TextMeshProUGUI healthPotionAmountInventory;
     [SerializeField] private TextMeshProUGUI playerHealthInventory;
     [SerializeField] private TextMeshProUGUI playerDamageInventory;
-    public void OnButtonClick()
+    public void OnAttackButtonClick()
     {
-        battleManager.AttackButtonPressed();
+        battleManager.AttackButtonPressed(1);
+    }
+    public void OnAttack2ButtonClick()
+    {
+        if (player.currentEnergy >= 10) battleManager.AttackButtonPressed(2);
     }
 
    public void onInventoryButtonClick()
