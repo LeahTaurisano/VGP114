@@ -12,6 +12,8 @@ public class ActiveObject : MonoBehaviour
     public GameObject combatUI;
     public GameObject menuUI;
     public GameObject inventoryMenuUI;
+    [SerializeField] GameObject playerCombatSprite;
+    [SerializeField] GameObject enemyCombatSprite;
 
     public void AllMenuUIFalse()
     {
@@ -20,11 +22,15 @@ public class ActiveObject : MonoBehaviour
     }
     public void ActivateCombatUI()
     {
+        playerCombatSprite.SetActive(true);
+        enemyCombatSprite.SetActive(true);
         combatUI.SetActive(true);
         AllMenuUIFalse();
     }
     public void DeactivateCombatUI()
     {
+        playerCombatSprite.SetActive(false);
+        enemyCombatSprite.SetActive(false);
         combatUI.SetActive(false);
     }
 
