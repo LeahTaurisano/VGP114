@@ -12,6 +12,11 @@ public class MovementComponent : MonoBehaviour
     float moveCD = 3;
     int randDir;
     Vector2 Direction;
+
+
+    [SerializeField] private SpriteRenderer spriteRenderer;
+    public Sprite[] enemySprites;
+
     public void Start()
     {
         GameObject collisionTilemap = GameObject.FindGameObjectWithTag("Ground1");
@@ -25,15 +30,19 @@ public class MovementComponent : MonoBehaviour
             {
                 case 0:
                     Direction = new Vector2(1, 0);
+                    spriteRenderer.sprite = enemySprites[0];
                     break;
                 case 1:
                     Direction = new Vector2(-1, 0);
+                    spriteRenderer.sprite = enemySprites[1];
                     break;
                 case 2:
                     Direction = new Vector2(0, 1);
+                    spriteRenderer.sprite = enemySprites[2];
                     break;
                 case 3:
                     Direction = new Vector2(0, -1);
+                    spriteRenderer.sprite = enemySprites[3];
                     break;
 
             }
