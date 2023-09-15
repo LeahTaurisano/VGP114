@@ -18,7 +18,6 @@ public class EnemySpawn : MonoBehaviour
     [SerializeField] public Tilemap groundTilemap;
     [SerializeField] public Tilemap collisionTilemap;
     [SerializeField] CombatTrigger combatActive;
-    [SerializeField] private SpriteRenderer spriteRenderer;
     public Sprite[] allocatedEnemySprites;
 
 
@@ -34,6 +33,7 @@ public class EnemySpawn : MonoBehaviour
                 enemyMovement.groundTilemap = groundTilemap;
                 enemyMovement.collisionTilemap = collisionTilemap;
                 enemyMovement.combatActive = combatActive;
+                enemyMovement.enemySprites = new Sprite[4];
                 enemyMovement.enemySprites[0] = allocatedEnemySprites[0];
                 enemyMovement.enemySprites[1] = allocatedEnemySprites[1];
                 enemyMovement.enemySprites[2] = allocatedEnemySprites[2];

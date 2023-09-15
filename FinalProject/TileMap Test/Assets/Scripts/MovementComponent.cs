@@ -16,10 +16,12 @@ public class MovementComponent : MonoBehaviour
 
     [SerializeField] private SpriteRenderer spriteRenderer;
     public Sprite[] enemySprites;
+    public string[] test;
 
     public void Start()
     {
         GameObject collisionTilemap = GameObject.FindGameObjectWithTag("Ground1");
+        spriteRenderer = this.GetComponent<SpriteRenderer>();
     }
     public void Update()
     {
